@@ -17,6 +17,9 @@ if [[ ! -e /vol/persistent-hdfs/dfs/name ]] ; then
   $PERSISTENT_HDFS/bin/hadoop namenode -format
 fi
 
-echo "Persistent HDFS installed, won't start by default..."
+echo "Starting persistent HDFS..."
+# This is different depending on version. Simple hack: just try both.
+$PERSISTENT_HDFS/sbin/start-dfs.sh
+$PERSISTENT_HDFS/bin/start-dfs.sh
 
 popd > /dev/null

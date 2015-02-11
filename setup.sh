@@ -81,6 +81,11 @@ if [[ ! $MODULES =~ *scala* ]]; then
   MODULES=$(printf "%s\n%s\n" "scala" $MODULES)
 fi
 
+# Always include 'anaconda' module if it's not defined
+if [[ ! $MODULES =~ *anaconda* ]]; then
+  MODULES=$(printf "%s\n%s\n" "anaconda" $MODULES)
+fi
+
 # Install / Init module
 for module in $MODULES; do
   echo "Initializing $module"

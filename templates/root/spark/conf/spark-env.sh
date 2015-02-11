@@ -19,3 +19,6 @@ export SPARK_PUBLIC_DNS=`wget -q -O - http://169.254.169.254/latest/meta-data/pu
 
 # Set a high ulimit for large shuffles
 ulimit -n 1000000
+
+# For anaconda
+export PYSPARK_PYTHON=/root/anaconda/bin/python

@@ -8,11 +8,13 @@ if [ -d "anaconda" ]; then
 fi
 
 wget -P /root https://s3-us-west-2.amazonaws.com/active-spark-ec2-dev/anaconda.tar.gz
+echo "Uncompressing Anaconda..."
 tar xfz anaconda.tar.gz
 
-/root/anaconda/bin/conda update --yes conda
-/root/anaconda/bin/conda update --yes anaconda
-/root/anaconda/bin/conda install --yes seaborn
+echo "Updating Anaconda..."
+/root/anaconda/bin/conda update --yes conda  > /dev/null
+/root/anaconda/bin/conda update --yes anaconda > /dev/null
+/root/anaconda/bin/conda install --yes seaborn > /dev/null
 
 # add export to miniconda if it does not exists
 LINE_TO_ADD="export PATH=/root/anaconda/bin:$PATH"
@@ -20,6 +22,7 @@ PROFILE="/root/.bash_profile"
 
 grep -qsFx "$LINE_TO_ADD" "$PROFILE" || printf "%s\n" "$LINE_TO_ADD" >> "$PROFILE"
 
-. "$PROFILE"
+// Re-sourcing the profile
+source "$PROFILE"
 
 popd > /dev/null

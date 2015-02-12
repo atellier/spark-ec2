@@ -86,6 +86,11 @@ if [[ ! $MODULES =~ *anaconda* ]]; then
   MODULES=$(printf "%s\n%s\n" "anaconda" $MODULES)
 fi
 
+# Always include 'ipython' module if it's not defined - after anaconda
+if [[ ! $MODULES =~ *ipython* ]]; then
+  MODULES=$(printf "%s\n%s\n" "ipython" $MODULES)
+fi
+
 # Install / Init module
 for module in $MODULES; do
   echo "Initializing $module"

@@ -83,12 +83,12 @@ fi
 
 # Always include 'anaconda' module if it's not defined
 if [[ ! $MODULES =~ *anaconda* ]]; then
-  MODULES=$(printf "%s\n%s\n" "anaconda" $MODULES)
+  MODULES=$(printf "%s\n%s\n" $MODULES "anaconda")
 fi
 
 # Always include 'ipython' module if it's not defined - after anaconda
 if [[ ! $MODULES =~ *ipython* ]]; then
-  MODULES=$(printf "%s\n%s\n" "ipython" $MODULES)
+  MODULES=$(printf "%s\n%s\n" $MODULES "ipython")
 fi
 
 # Install / Init module

@@ -7,7 +7,7 @@ if [ -d "anaconda" ]; then
   return
 fi
 
-wget -P /root https://s3-us-west-2.amazonaws.com/active-spark-ec2-dev/anaconda.tar.gz
+wget https://s3-us-west-2.amazonaws.com/active-spark-ec2-dev/anaconda.tar.gz -O /root/anaconda.tar.gz
 echo "Uncompressing Anaconda..."
 tar xfz anaconda.tar.gz
 

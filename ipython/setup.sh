@@ -3,9 +3,10 @@
 pushd /root/spark-ec2/ipython > /dev/null
 
 # Overwrite profile with correct profile
+echo "Installing Spark profile on master if needed..."
 if [ ! -d "/root/.ipython/profile_spark" ]; then
   	/root/anaconda/bin/ipython profile create spark
-	wget https://s3-us-west-2.amazonaws.com/active-spark-ec2-dev/profile_spark.tar.gz
+	wget https://s3-us-west-2.amazonaws.com/active-spark-ec2-dev/profile_spark.tar.gz -O profile_spark.tar.gz
 	tar xfz profile_spark.tar.gz -C /root/.ipython
 fi
 

@@ -12,6 +12,9 @@ if [ ! -d "/root/.ipython/profile_spark" ]; then
 	tar xfz profile_spark.tar.gz -C /root/.ipython
 fi
 
+# resource profile jjst in case (we updated the python path with anaconda)
+source /root/.bash_profile
+
 # Then run ipython
 mkdir -p /root/ipython/notebook
 PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook --profile=spark" nohup /root/spark/bin/pyspark --master spark://`curl -s http://169.254.169.254/latest/meta-data/public-hostname`:7077 &> /var/log/ipython.log 2>&1&

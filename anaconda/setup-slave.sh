@@ -23,6 +23,6 @@ PROFILE="/root/.bash_profile"
 grep -qsFx "$LINE_TO_ADD" "$PROFILE" || printf "%s\n" "$LINE_TO_ADD" >> "$PROFILE"
 
 // Re-sourcing the profile
-source "$PROFILE"
+source $PROFILE
 
 popd > /dev/null

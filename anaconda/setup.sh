@@ -1,10 +1,8 @@
 #!/bin/bash
 
 pushd /root/spark-ec2/anaconda > /dev/null
-source ./setup-slave.sh
 
-echo "Anaconda installed on master..."
-
+echo "Installing Anaconda on masters and slaves..."
 pssh --inline \
     --host "$MASTERS $SLAVES" \
     --user root \
@@ -12,6 +10,6 @@ pssh --inline \
     --timeout 0 \
     "source /root/spark-ec2/anaconda/setup-slave.sh"
 
-echo "Anaconda installed on slaves..."
+echo "Anaconda installed on masters and slaves..."
 
 popd > /dev/null

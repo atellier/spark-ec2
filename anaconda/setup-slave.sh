@@ -16,7 +16,7 @@ echo "Updating Anaconda..."
 /root/anaconda/bin/conda update --yes anaconda > /dev/null
 /root/anaconda/bin/conda install --yes seaborn > /dev/null
 
-# add export to miniconda if it does not exists
+# add export to anaconda if it does not exists
 LINE_TO_ADD="export PATH=/root/anaconda/bin:$PATH"
 PROFILE="/root/.bash_profile"
 
